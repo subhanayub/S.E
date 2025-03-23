@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meri Zindagi Ka Safar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0a0a0a, #2b0f0f);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+        .intro {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+        .enter-btn, .next-btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            background: #ff1a1a;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 26, 26, 0.7);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .enter-btn:hover, .next-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 26, 26, 1);
+        }
+        .content {
+            display: none;
+            padding: 50px;
+        }
+        .section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        .section.active {
+            opacity: 1;
+        }
+        h1 {
+            font-size: 48px;
+            color: #ff1a1a;
+            text-shadow: 0 0 15px rgba(255, 26, 26, 0.8);
+        }
+        p {
+            font-size: 24px;
+            max-width: 700px;
+            margin: 20px;
+            line-height: 1.6;
+            color: #fff;
+        }
+        /* Animation for Intro */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Animation for Section 1 - Melting Ice Cream */
+        #section1 h1 { animation: melt 2s infinite alternate; }
+        #section1 p { animation: drip 2s ease-out; }
+        @keyframes melt {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
+        }
+        @keyframes drip {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        /* Animation for Section 2 - Swirling Hearts */
+        #section2 h1 { animation: swirl 3s infinite; }
+        #section2 p { animation: floatIn 2s ease-out; }
+        @keyframes swirl {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+            100% { transform: rotate(0deg); }
+        }
+        @keyframes floatIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        /* Animation for Section 3 - Pulsing Glow */
+        #section3 h1 { animation: pulse 1.5s infinite; }
+        #section3 p { animation: fadeGlow 2s ease-out; }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes fadeGlow {
+            from { opacity: 0; text-shadow: 0 0 5px #ff1a1a; }
+            to { opacity: 1; text-shadow: 0 0 20px #ff1a1a; }
+        }
+        /* Animation for Section 4 - Falling Stars */
+        #section4 h1 { animation: starGlow 2s infinite alternate; }
+        #section4 p { animation: fall 2s ease-out; }
+        @keyframes starGlow {
+            from { text-shadow: 0 0 10px #ff1a1a; }
+            to { text-shadow: 0 0 25px #ff1a1a; }
+        }
+        @keyframes fall {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        /* Animation for Section 5 - Cinematic Fade */
+        #section5 h1 { animation: cinematicFade 3s infinite alternate; }
+        #section5 p { animation: riseUp 2s ease-out; }
+        @keyframes cinematicFade {
+            from { opacity: 0.8; }
+            to { opacity: 1; }
+        }
+        @keyframes riseUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Intro Section -->
+    <div class="intro" id="intro">
+        <h1>Meri Jaan, Meri Begum, Meri Saans</h1>
+        <p>A love story sweeter than ice cream...</p>
+        <button class="enter-btn" onclick="enterPage()">Enter Our Memories</button>
+        <audio id="intro-audio" autoplay loop>
+            <source src="https://www.bensound.com/bensound-music/bensound-sweet.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content" id="content">
+        <!-- Memory 1: The Beginning -->
+        <div class="section" id="section1">
+            <h1>The Day We Met</h1>
+            <p>"Har saal aata hai, lekin is saal ki shuruaat alag hai, kyunki is saal mere paas aap ho, meri duaon ka jawab ho. 6th June ko Allah ne humein milwaya, us din meri zindagi mein ek roshni ka ujaala aaya—jaise ice cream ke pehle bite mein dil khil jata hai."</p>
+            <button class="next-btn" onclick="scrollToSection('section2')">Next Memory</button>
+            <audio id="audio1" loop>
+                <source src="https://www.bensound.com/bensound-music/bensound-sweet.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+        <!-- Memory 2: Silent Longing -->
+        <div class="section" id="section2">
+            <h1>Whispers of the Heart</h1>
+            <p>"Phir kuch din hum khamosh rahe, lekin dil kabhi chup na raha. Har pal aap ka intezaar, aap ki yaad dil ke paas raha. Jab milenge hum, baatein karte-karte door nikle jayenge, aur main sirf aapko dekhoon—jaise ice cream pighalta hai, waise hi dil bhi."</p>
+            <button class="next-btn" onclick="scrollToSection('section3')">Next Memory</button>
+            <audio id="audio2" loop>
+                <source src="https://www.bensound.com/bensound-music/bensound-memories.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+        <!-- Memory 3: Love Confessed -->
+        <div class="section" id="section3">
+            <h1>Our Forever Began</h1>
+            <p>"November aaya, aur humne dil ke raaz khol diye. Mohabbat ka izhaar kiya, aur Alhamdulillah, hum saath ho gaye. You walked into my life like a gentle breeze, melting my heart like ice cream on a warm day, and with you, I found my sweetest forever."</p>
+            <button class="next-btn" onclick="scrollToSection('section4')">Next Memory</button>
+            <audio id="audio3" loop>
+                <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+        <!-- Memory 4: Loving You From Afar -->
+        <div class="section" id="section4">
+            <h1>My Unseen Love</h1>
+            <p>"Eu te amei de longe—I loved you from afar, jaise ice cream ke bina bhi uski thandak mehsoos hoti hai. Sem o seu cheiro, sem o seu abraço, sem tocar—phir bhi tum meri zindagi ka woh mithaas ho jo har gham ko pighla deti hai."</p>
+            <button class="next-btn" onclick="scrollToSection('section5')">Next Memory</button>
+            <audio id="audio4" loop>
+                <source src="https://www.bensound.com/bensound-music/bensound-onceagain.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+        <!-- Memory 5: A Promise and an Apology -->
+        <div class="section" id="section5">
+            <h1>My Eternal Vow</h1>
+            <p>"Jab milenge hum, baatein karte-karte door nikle jayenge, aur main sirf aapko dekhoon—tum meri ice cream ho, jo har pal ko mithaas se bhar deti ho. Ab naye saal ka har din tumhare saath guzarne ki dua hai, chahe saari duniya khilaaf ho, mera dil sirf tumhara hai. Happy New Year, meri zindagi!"</p>
+            <p>"Main bura hoon—main. Agar maine kabhi koi galti ki, maaf kar dena. Main perfect nahi, par tumhe apna sab kuch dena chahta hoon—jaise ice cream ka akhiri bite bhi tumhare liye chhod doon. Aap mera sab kuch ho."</p>
+            <audio id="audio5" loop>
+                <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        function enterPage() {
+            const intro = document.getElementById('intro');
+            const content = document.getElementById('content');
+            const introAudio = document.getElementById('intro-audio');
+            
+            intro.style.display = 'none';
+            content.style.display = 'block';
+            introAudio.pause();
+
+            const sections = document.querySelectorAll('.section');
+            sections[0].classList.add('active');
+            document.getElementById('audio1').play();
+
+            window.addEventListener('scroll', () => {
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < window.innerHeight / 2 && rect.bottom > 0) {
+                        section.classList.add('active');
+                        document.getElementById(`audio${index + 1}`).play();
+                    } else {
+                        document.getElementById(`audio${index + 1}`).pause();
+                    }
+                });
+            });
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
